@@ -1,0 +1,41 @@
+#!/bin/bash
+
+while getopts ":v" opt; do
+  case $opt in
+    v)
+      debug=1
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1;
+      ;;
+  esac
+done
+
+server="tesla.local"
+server_path="/var/www"
+server_user="cosgroma"
+
+timestamp="$(date +%Y%m%d%H%M%S)"
+
+project="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+site="$(basename $project)"
+filename=$timestamp.tar.gz
+
+[ $debug ] && echo "timestamp   = $timestamp"
+[ $debug ] && echo "project     = $project"
+[ $debug ] && echo "site        = $site"
+
+[ $debug ] && echo "filename    = $filename"
+
+[ $debug ] && echo "server      = $server"
+[ $debug ] && echo "server_user = $server_user"
+[ $debug ] && echo "server_path = $server_path"
+
+[ $debug ] && echo "Archiving ..."
+tar zcf $project/archives/$filename -C $project/_site .
+[ $debug ] && echo "Copying to $server ... "
+scp $project/archives/$filename $server_user@$server:$server_path/$site/archives/$filename &>/dev/null
+[ $debug ] && echo "Deploying $site on $server .."
+ssh $server_user@$server "tar xzf $server_path/$site/archives/$filename -C $server_path/$site/public_html/;"
+[ $debug ] && echo "Done"
