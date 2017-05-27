@@ -30,7 +30,7 @@ force-https: False
 
 lang: "en"
 author: "Mathew Cosgrove"
-title: "<cosgroma/>"
+title: "cosgroma"
 description: "Blog and website of Mathew Cosgrove, blogging mainly for tech. Opinions expressed are mine."
 keywords: "cosgrove, mathew, cosgroma, work, stuff, interesting"
 favicon: "/img/favicon.ico"
@@ -186,7 +186,6 @@ pages_list:
   Blog: 'latest-post'
   Timeline: 'timeline'
   Contact: 'contact'
-  Contact2: 'contact'
 
 # Exclusion list from the generated _site
 
