@@ -41,7 +41,7 @@ favicon: "/img/favicon.ico"
 
 # black-favicon: "/img/black-lab-glass.ico"
 
-# background-img: "../img/intro-bg.jpg"
+# background-img: "../img/quanred_proj_2.png"
 
 ##############################
 # Dynamic Text on the Header #
@@ -115,6 +115,15 @@ events:
     date: "September 20010 - Today"
     description: "Started Working on SERGEANT"
 
+  - image: "/img/timeline/default.png"
+    date: "August 27, 2014"
+    description: "Son Born"
+
+  - image: "/img/timeline/default.png"
+    date: "June 20, 1983"
+    description: "Born"
+
+
 # First image of the Timeline
 
 timeline-img: "/img/timeline/default.png"
@@ -177,6 +186,7 @@ pages_list:
   Blog: 'latest-post'
   Timeline: 'timeline'
   Contact: 'contact'
+  Contact2: 'contact'
 
 # Exclusion list from the generated _site
 
